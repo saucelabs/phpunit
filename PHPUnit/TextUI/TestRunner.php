@@ -673,9 +673,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
                 !isset($arguments['testdoxTextFile'])) {
                 $arguments['testdoxTextFile'] = $loggingConfiguration['testdox-text'];
             }
-        }
 
-        if (isset($arguments['configuration'])) {
             $filterConfiguration = $arguments['configuration']->getFilterConfiguration();
 
             $filter = $this->codeCoverage->filter();
@@ -764,6 +762,8 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
         $arguments['stopOnSkipped']               = isset($arguments['stopOnSkipped'])               ? $arguments['stopOnSkipped']               : FALSE;
         $arguments['strict']                      = isset($arguments['strict'])                      ? $arguments['strict']                      : FALSE;
         $arguments['verbose']                     = isset($arguments['verbose'])                     ? $arguments['verbose']                     : FALSE;
+
+        $this->codeCoverage->setCacheTokens($arguments['cacheTokens']);
 
         if ($arguments['filter'] !== FALSE &&
             preg_match('/^[a-zA-Z0-9_]/', $arguments['filter'])) {
