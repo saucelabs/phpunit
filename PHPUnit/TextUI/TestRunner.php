@@ -318,9 +318,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
                   'a moment.'
                 );
 
-                $writer = new PHP_CodeCoverage_Report_Clover(
-                  $arguments['cacheTokens']
-                );
+                $writer = new PHP_CodeCoverage_Report_Clover;
 
                 $writer->process(
                   $this->codeCoverage, $arguments['coverageClover']
@@ -348,7 +346,6 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
                 $writer = new PHP_CodeCoverage_Report_HTML(
                   array(
                     'title'          => $title,
-                    'cacheTokens'    => $arguments['cacheTokens'],
                     'charset'        => $arguments['reportCharset'],
                     'yui'            => $arguments['reportYUI'],
                     'highlight'      => $arguments['reportHighlight'],
