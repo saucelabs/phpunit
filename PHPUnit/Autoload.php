@@ -52,9 +52,10 @@ require_once 'PHPUnit/Extensions/SeleniumTestCase/Autoload.php';
 require_once 'PHPUnit/Extensions/Story/Autoload.php';
 require_once 'Text/Template/Autoload.php';
 
-function phpunit_autoload($class = NULL) {
+function phpunit_autoload($class = NULL)
+{
     static $classes = NULL;
-    static $path = NULL;
+    static $path    = NULL;
 
     if ($classes === NULL) {
         $classes = array(
@@ -83,12 +84,8 @@ function phpunit_autoload($class = NULL) {
           'phpunit_framework_comparator_scalar' => '/Framework/Comparator/Scalar.php',
           'phpunit_framework_comparator_splobjectstorage' => '/Framework/Comparator/SplObjectStorage.php',
           'phpunit_framework_comparator_type' => '/Framework/Comparator/Type.php',
+          'phpunit_framework_comparatorfactory' => '/Framework/ComparatorFactory.php',
           'phpunit_framework_comparisonfailure' => '/Framework/ComparisonFailure.php',
-          'phpunit_framework_comparisonfailure_array' => '/Framework/ComparisonFailure/Array.php',
-          'phpunit_framework_comparisonfailure_object' => '/Framework/ComparisonFailure/Object.php',
-          'phpunit_framework_comparisonfailure_scalar' => '/Framework/ComparisonFailure/Scalar.php',
-          'phpunit_framework_comparisonfailure_string' => '/Framework/ComparisonFailure/String.php',
-          'phpunit_framework_comparisonfailure_type' => '/Framework/ComparisonFailure/Type.php',
           'phpunit_framework_constraint' => '/Framework/Constraint.php',
           'phpunit_framework_constraint_and' => '/Framework/Constraint/And.php',
           'phpunit_framework_constraint_arrayhaskey' => '/Framework/Constraint/ArrayHasKey.php',
@@ -122,6 +119,7 @@ function phpunit_autoload($class = NULL) {
           'phpunit_framework_constraint_traversablecontainsonly' => '/Framework/Constraint/TraversableContainsOnly.php',
           'phpunit_framework_constraint_xor' => '/Framework/Constraint/Xor.php',
           'phpunit_framework_error' => '/Framework/Error.php',
+          'phpunit_framework_error_deprecated' => '/Framework/Error/Deprecated.php',
           'phpunit_framework_error_notice' => '/Framework/Error/Notice.php',
           'phpunit_framework_error_warning' => '/Framework/Error/Warning.php',
           'phpunit_framework_exception' => '/Framework/Exception.php',
