@@ -338,7 +338,7 @@ abstract class PHPUnit_Framework_Assert
      * @param mixed   $haystack
      * @param string  $message
      */
-    public function assertCount($expectedCount, $haystack, $message = '')
+    public static function assertCount($expectedCount, $haystack, $message = '')
     {
         if (!is_int($expectedCount)) {
             throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
@@ -358,13 +358,32 @@ abstract class PHPUnit_Framework_Assert
     }
 
     /**
+     * Asserts the number of elements of an array, Countable or Iterator
+     * that is stored in an attribute.
+     *
+     * @param integer $expectedCount
+     * @param string  $haystackAttributeName
+     * @param mixed   $haystackClassOrObject
+     * @param string  $message
+     * @since Method available since Release 3.6.0
+     */
+    public static function assertAttributeCount($expectedCount, $haystackAttributeName, $haystackClassOrObject, $message = '')
+    {
+        self::assertCount(
+          $expectedCount,
+          self::readAttribute($haystackClassOrObject, $haystackAttributeName),
+          $message
+        );
+    }
+
+    /**
      * Asserts the number of elements of an array, Countable or Iterator.
      *
      * @param integer $expectedCount
      * @param mixed   $haystack
      * @param string  $message
      */
-    public function assertNotCount($expectedCount, $haystack, $message = '')
+    public static function assertNotCount($expectedCount, $haystack, $message = '')
     {
         if (!is_int($expectedCount)) {
             throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
@@ -381,6 +400,25 @@ abstract class PHPUnit_Framework_Assert
         );
 
         self::assertThat($haystack, $constraint, $message);
+    }
+
+    /**
+     * Asserts the number of elements of an array, Countable or Iterator
+     * that is stored in an attribute.
+     *
+     * @param integer $expectedCount
+     * @param string  $haystackAttributeName
+     * @param mixed   $haystackClassOrObject
+     * @param string  $message
+     * @since Method available since Release 3.6.0
+     */
+    public static function assertAttributeNotCount($expectedCount, $haystackAttributeName, $haystackClassOrObject, $message = '')
+    {
+        self::assertNotCount(
+          $expectedCount,
+          self::readAttribute($haystackClassOrObject, $haystackAttributeName),
+          $message
+        );
     }
 
     /**
