@@ -244,7 +244,8 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
         }
 
         if ((isset($arguments['coverageClover']) ||
-             isset($arguments['reportDirectory'])) &&
+             isset($arguments['reportDirectory']) ||
+             isset($arguments['coveragePHP'])) &&
              extension_loaded('xdebug')) {
             $result->setCodeCoverage($this->codeCoverage);
         }
@@ -332,6 +333,18 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
 
                 $writer->process(
                   $this->codeCoverage, $arguments['reportDirectory']
+                );
+
+                $this->printer->write("\n");
+                unset($writer);
+            }
+
+            if (isset($arguments['coveragePHP'])) {
+                require_once 'PHP/CodeCoverage/Report/PHP.php';
+
+                $writer = new PHP_CodeCoverage_Report_PHP;
+                $writer->process(
+                  $result->getCodeCoverage(), $arguments['coveragePHP']
                 );
 
                 $this->printer->write("\n");
