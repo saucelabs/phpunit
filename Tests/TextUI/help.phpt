@@ -45,6 +45,10 @@ Usage: phpunit [switches] UnitTest [UnitTest.php]
   --verbose                 Output more verbose information.
   --wait                    Waits for a keystroke after each test.
 
+  --parallelism <count>     Runs the test(s) at the same time in separate processes.
+                            (default 5)
+  --processes <count>       Synonym for --parallelism
+
   --skeleton-class          Generate Unit class for UnitTest in UnitTest.php.
   --skeleton-test           Generate UnitTest class for Unit in Unit.php.
 
