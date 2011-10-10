@@ -1,2 +1,5 @@
 build
 phpunit.xml
+.buildpath
+.settings
+.project
