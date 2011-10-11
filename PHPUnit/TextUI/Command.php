@@ -250,7 +250,7 @@ class PHPUnit_TextUI_Command
         try {
             $this->options = PHPUnit_Util_Getopt::getopt(
               $argv,
-              'd:c:',
+              'd:c:j:',
               array_keys($this->longOptions)
             );
         }
@@ -362,6 +362,7 @@ class PHPUnit_TextUI_Command
                 }
                 break;
 
+                case 'j': 
                 case '--jobs': 
                 {
                     $this->arguments['parallelism'] = (int)$option[1];
@@ -874,7 +875,7 @@ Usage: phpunit [switches] UnitTest [UnitTest.php]
   --verbose                 Output more verbose information.
   --wait                    Waits for a keystroke after each test.
 
-  --jobs <count>            Runs the test(s) at the same time in separate processes.
+  -j|--jobs <count>         Runs the test(s) at the same time in separate processes.
 
   --skeleton-class          Generate Unit class for UnitTest in UnitTest.php.
   --skeleton-test           Generate UnitTest class for Unit in Unit.php.
