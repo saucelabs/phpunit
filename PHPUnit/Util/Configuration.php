@@ -332,7 +332,7 @@ class PHPUnit_Util_Configuration
                 $listener->childNodes->item(1)->tagName == 'arguments') {
                 foreach ($listener->childNodes->item(1)->childNodes as $argument) {
                     if ($argument instanceof DOMElement) {
-                        if($argument->tagName == 'file' || $argument->tagName == 'directory') {
+                        if ($argument->tagName == 'file' || $argument->tagName == 'directory') {
                             $arguments[] = $this->toAbsolutePath((string)$argument->nodeValue);
                         } else {
                             $arguments[] = PHPUnit_Util_XML::xmlToVariable($argument);

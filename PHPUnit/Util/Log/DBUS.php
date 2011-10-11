@@ -159,7 +159,7 @@ class PHPUnit_Util_Log_DBUS implements PHPUnit_Framework_TestListener
      */
     public function startTestSuite(PHPUnit_Framework_TestSuite $suite)
     {
-        if($this->startedSuites == 0) {
+        if ($this->startedSuites == 0) {
             $this->startTime = time();
             $this->suiteName = $suite->getName();
         }
@@ -177,7 +177,7 @@ class PHPUnit_Util_Log_DBUS implements PHPUnit_Framework_TestListener
     {
         $this->endedSuites++;
 
-        if($this->startedSuites <= $this->endedSuites) {
+        if ($this->startedSuites <= $this->endedSuites) {
             $this->notify();
         }
     }
