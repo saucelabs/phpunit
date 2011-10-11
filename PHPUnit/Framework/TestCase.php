@@ -477,6 +477,30 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
                $status == PHPUnit_Runner_BaseTestRunner::STATUS_ERROR;
     }
 
+   /**
+     * Prepares the test case for a run.
+     * If no TestResult object is passed a new one will be created.
+     * 
+     * @param  PHPUnit_Framework_TestResult $result
+     * @return  PHPUnit_Framework_TestResult $result
+     */
+    public function prepareForRun(PHPUnit_Framework_TestResult $result = NULL)
+    {
+        if ($result === NULL) {
+            $result = $this->createResult();
+        }
+
+        $this->setExpectedExceptionFromAnnotation();
+        $this->setUseErrorHandlerFromAnnotation();
+        $this->setUseOutputBufferingFromAnnotation();
+
+        if ($this->useErrorHandler !== NULL) {
+            $oldErrorHandlerSetting = $result->getConvertErrorsToExceptions();
+            $result->convertErrorsToExceptions($this->useErrorHandler);
+        }
+        return $result;
+    }
+    
     /**
      * Runs the test case and collects the results in a TestResult object.
      * If no TestResult object is passed a new one will be created.
@@ -487,25 +511,12 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      */
     public function run(PHPUnit_Framework_TestResult $result = NULL)
     {
-        if ($result === NULL) {
-            $result = $this->createResult();
-        }
-
+        $result = $this->prepareForRun($result);
         $this->result = $result;
-
-        $this->setExpectedExceptionFromAnnotation();
-        $this->setUseErrorHandlerFromAnnotation();
-        $this->setUseOutputBufferingFromAnnotation();
-
-        if ($this->useErrorHandler !== NULL) {
-            $oldErrorHandlerSetting = $result->getConvertErrorsToExceptions();
-            $result->convertErrorsToExceptions($this->useErrorHandler);
-        }
-
         if (!$this->handleDependencies()) {
             return;
         }
-
+        
         if ($this->runTestInSeparateProcess === TRUE &&
             $this->inIsolation !== TRUE &&
             !$this instanceof PHPUnit_Extensions_SeleniumTestCase &&
