@@ -166,14 +166,6 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     protected $runningSubsuites = array();
 
     /**
-     * The subsuites in the suite that have finished running tests.
-     * Only used during parallelism.
-     *
-     * @var    array
-     */
-    protected $finishedSubsuites = array();
-
-    /**
      * The subsuites in the order in which they'll be reported
      * Only used during parallelism.
      *
@@ -905,8 +897,6 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
             if ($suite->hasTestsPrepared()) {
                 list($tests_suite, $test) = $suite->startNextPreparedTest($result, $php);
                 $this->runningSubsuites[] = $suite;
-            } else {
-                $this->finishedSubsuites[] = $suite;
             }
         }
         if (is_null($test) && !empty($this->preparedTests)) {
@@ -934,7 +924,6 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
             if ($finished_pid > 0) {
                 if ($suite->countRunning() == 0 && !$suite->hasTestsPrepared()) {
                     unset($this->runningSubsuites[$i]);
-                    $this->finishedSubsuites[] = $suite;
                 }
                 break;
             }
