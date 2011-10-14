@@ -615,7 +615,9 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     {
         $php = PHPUnit_Util_PHP::factory();
         $pid = $this->startInAnotherProcess($result, $php);
+        $php->reportJobStarted($pid);
         $php->finishJob($pid);
+        $php->reportJobFinished($pid);
         return $result;
     }
 
