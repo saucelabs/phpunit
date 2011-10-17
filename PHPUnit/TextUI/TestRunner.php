@@ -165,7 +165,8 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
               $arguments['filter'],
               $arguments['groups'],
               $arguments['excludeGroups'],
-              $arguments['processIsolation']
+              $arguments['processIsolation'],
+              $arguments['parallelism']
             );
         }
 
