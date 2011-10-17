@@ -17,9 +17,9 @@
   <email>sebastian@phpunit.de</email>
   <active>yes</active>
  </lead>
- <date>2011-08-19</date>
+ <date>2011-10-17</date>
  <version>
-  <release>3.5.16</release>
+  <release>3.5.17</release>
   <api>3.5.7</api>
  </version>
  <stability>
@@ -538,7 +538,7 @@
    </package>
    <package>
     <name>PHPUnit_Selenium</name>
-    <channel>pear.phpunit.de</channel>
+    <channel>saucelabs.github.com/pear</channel>
     <min>1.0.1</min>
    </package>
    <package>
