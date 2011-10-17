@@ -156,6 +156,11 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     private $data = array();
 
     /**
+     * @var    array
+     */
+    private $moreArgs = array();
+
+    /**
      * @var    string
      */
     private $dataName = '';
@@ -290,6 +295,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
 
         $this->data     = $data;
         $this->dataName = $dataName;
+        $this->moreArgs = array_slice(func_get_args(), 3);
     }
 
     /**
@@ -637,6 +643,10 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
         );
         $includePath     = addslashes(get_include_path());
 
+        $moreArgs = "";
+        foreach ($this->moreArgs as $arg) {
+            $moreArgs .= ", ".var_export($arg, TRUE);
+        }
         $template->setVar(
           array(
             'filename'                       => $class->getFileName(),
@@ -650,7 +660,8 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
             'globals'                        => $globals,
             'include_path'                   => $includePath,
             'included_files'                 => $includedFiles,
-            'strict'                         => $strict
+            'strict'                         => $strict,
+            'moreArgs'                       => $moreArgs
           )
         );
         
