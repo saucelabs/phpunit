@@ -8,9 +8,9 @@
                       http://pear.php.net/dtd/package-2.0
                       http://pear.php.net/dtd/package-2.0.xsd">
  <name>PHPUnit</name>
- <channel>pear.phpunit.de</channel>
- <summary>The PHP Unit Testing framework.</summary>
- <description>The PHP Unit Testing framework.</description>
+ <channel>saucelabs.github.com/pear</channel>
+ <summary>Saucelabs temporary mirror of PHP Unit Testing framework with parallelism.</summary>
+ <description>Saucelabs temporary mirror of PHP Unit Testing framework with parallelism.</description>
  <lead>
   <name>Sebastian Bergmann</name>
   <user>sb</user>
@@ -19,7 +19,7 @@
  </lead>
  <date>2011-08-19</date>
  <version>
-  <release>3.5.15</release>
+  <release>3.5.16</release>
   <api>3.5.7</api>
  </version>
  <stability>
