@@ -19,7 +19,7 @@
  </lead>
  <date>2011-10-17</date>
  <version>
-  <release>3.5.19</release>
+  <release>3.5.20</release>
   <api>3.5.7</api>
  </version>
  <stability>
@@ -539,7 +539,7 @@
    <package>
     <name>PHPUnit_Selenium</name>
     <channel>saucelabs.github.com/pear</channel>
-    <min>1.1.2</min>
+    <min>1.1.4</min>
    </package>
    <package>
     <name>YAML</name>
