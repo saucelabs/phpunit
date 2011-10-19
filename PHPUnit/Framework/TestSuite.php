@@ -313,7 +313,7 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
         }
 
         $this->testCase = TRUE;
-        $this->parallelism = PHPUnit_Util_Test::getParallelismSettings($theClass->getName());
+        $this->setParallelism(PHPUnit_Util_Test::getParallelismSettings($theClass->getName()));
     }
 
     /**
@@ -1097,6 +1097,16 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * Sets the parallelism of the suite.
+     *
+     * @param  int
+     */
+    public function setParallelism($parallelism)
+    {
+        $this->parallelism = $parallelism;
     }
 
     /**
