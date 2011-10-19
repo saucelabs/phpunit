@@ -17,9 +17,9 @@
   <email>sebastian@phpunit.de</email>
   <active>yes</active>
  </lead>
- <date>2011-10-18</date>
+ <date>2011-10-19</date>
  <version>
-  <release>3.5.20</release>
+  <release>3.5.22</release>
   <api>3.5.7</api>
  </version>
  <stability>
@@ -483,9 +483,9 @@
      <tasks:replace from="@package_version@" to="version" type="package-info" />
     </file>
    </dir>
-   <file baseinstalldir="/" name="ChangeLog.markdown" role="doc"/>
-   <file baseinstalldir="/" name="LICENSE" role="doc"/>
-   <file baseinstalldir="/" name="README.markdown" role="doc"/>
+   <file baseinstalldir="/" name="ChangeLog.markdown.saucelabs" role="doc"/>
+   <file baseinstalldir="/" name="LICENSE.saucelabs" role="doc"/>
+   <file baseinstalldir="/" name="README.markdown.saucelabs" role="doc"/>
    <file baseinstalldir="/" name="phpunit.php" role="script">
     <tasks:replace from="/usr/bin/env php" to="php_bin" type="pear-config"/>
     <tasks:replace from="@php_bin@" to="php_bin" type="pear-config" />
@@ -539,7 +539,7 @@
    <package>
     <name>PHPUnit_Selenium</name>
     <channel>saucelabs.github.com/pear</channel>
-    <min>1.1.5</min>
+    <min>1.1.6</min>
    </package>
    <package>
     <name>YAML</name>
