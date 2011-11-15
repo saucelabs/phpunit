@@ -72,6 +72,6 @@ class PHPUnit_Runner_Version
      */
     public static function getVersionString()
     {
-        return 'PHPUnit @package_version@ by Sebastian Bergmann.';
+        return 'Temporary SauceLabs fork @package_version@ of PHPUnit by Sebastian Bergmann. Supports parallel testing. Becomes obsolete when PHPUnit 3.7.0 is released.';
     }
 }
