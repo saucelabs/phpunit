@@ -1,3 +1,8 @@
+This fork of PHPUnit is unmaintained. It was an attempt to contribute parallel text execution. It was never merged and is now considerably out of date.
+
+
+
+
 PHPUnit
 =======
 
